@@ -62,6 +62,9 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 set tags=./tags;/
 
 au FileType python setlocal formatprg=autopep8\ -
+set makeprg=python\ %
+nmap <F4> :make <CR><CR>:bd <CR>
+set autowrite
 " pymode settings
 let g:pymode_folding = 0
 let g:autopep8_max_line_length=120
