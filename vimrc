@@ -24,7 +24,7 @@ let mapleader = ","
 
 " quickly edit vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>rv :so $MYVIMRC<CR>
 set modelines=0
 
 set encoding=utf-8
@@ -63,8 +63,10 @@ set tags=./tags;/
 
 au FileType python setlocal formatprg=autopep8\ -
 set makeprg=python\ %
-nmap <F4> :make <CR><CR>:bd <CR>
+nmap <F4> :Bexec <CR>:wincmd k <CR>:bd!
+nmap <F5> :e test_% <CR>:Bexec <CR>:bd <CR>:wincmd k <CR>:bd!
 set autowrite
+set completeopt=menu
 " pymode settings
 let g:pymode_folding = 0
 let g:autopep8_max_line_length=120

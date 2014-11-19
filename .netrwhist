@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/Anil/Documents/textio/textio-api/textio_server/worker'
 let g:netrw_dirhist_2='/Users/Anil/Documents/textio/textio-api/textio_server'
 let g:netrw_dirhist_3='/Users/Anil/Documents/textio/textio-api'
+let g:netrw_dirhist_4='/Users/Anil/Documents/textio/textio/.git'
+let g:netrw_dirhist_5='/Users/Anil/Documents/textio/data/urls'
