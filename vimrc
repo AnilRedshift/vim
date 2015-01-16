@@ -69,7 +69,6 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 set tags=./tags;/
 
 au FileType python setlocal formatprg=autopep8\ -
-autocmd FileType python map <buffer> <F7> :call Autopep8()<CR>
 set makeprg=python\ %
 nmap <F4> :Bexec <CR>:wincmd k <CR>:bd!
 nmap <F5> :call RunTests() <CR>
