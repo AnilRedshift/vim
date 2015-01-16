@@ -27,6 +27,13 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>rv :so $MYVIMRC<CR>
 set modelines=0
 
+function RunTests()
+    let path_to_use = expand('%:h')
+    let file_name = expand('%:t')
+    let test_name = path_to_use . "/" . "test_" . file_name
+    execute "! python -m unittest " . test_name
+endfunction
+
 set encoding=utf-8
 set scrolloff=3
 set autoindent
@@ -62,9 +69,10 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 set tags=./tags;/
 
 au FileType python setlocal formatprg=autopep8\ -
+autocmd FileType python map <buffer> <F7> :call Autopep8()<CR>
 set makeprg=python\ %
 nmap <F4> :Bexec <CR>:wincmd k <CR>:bd!
-nmap <F5> :e test_% <CR>:Bexec <CR>:bd <CR>:wincmd k <CR>:bd!
+nmap <F5> :call RunTests() <CR>
 set autowrite
 set completeopt=menu
 " pymode settings
