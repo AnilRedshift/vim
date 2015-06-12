@@ -77,5 +77,10 @@ set completeopt=menu
 " pymode settings
 let g:pymode_folding = 0
 let g:autopep8_max_line_length=120
+let g:pymode_lint_options_pylint = {'max-line-length': g:pymode_options_max_line_length}
 let g:autopep8_aggressive=1
 let g:autopep8_disable_show_diff=1
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+let g:pymode_lint_message = 1
+let g:pymode_rope = 1
