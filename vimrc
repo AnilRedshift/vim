@@ -114,4 +114,4 @@ endfunction
 
 command! -nargs=1 OpenFilesCommand call OpenFiles(<f-args>)
 
-map <leader>o :OpenFilesCommand
+map <leader>o :OpenFilesCommand 
