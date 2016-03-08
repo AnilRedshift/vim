@@ -86,6 +86,7 @@ let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_lint_message = 1
 let g:pymode_rope = 1
 let g:pymode_python = 'python3'
+let g:virtualenv_directory = '/Users/anil.virtualenvs'
 
 " command-t options
 let g:RootIgnoreUseHome = 1
@@ -97,3 +98,20 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+function! OpenFiles(search_string)
+    let shellcmd = 'ag -l '.a:search_string
+    let output = system(shellcmd)
+    if v:shell_error
+        return 1
+    endif
+
+    let lines = split(output)
+    for line in lines
+        execute 'edit' line
+    endfor
+endfunction
+
+command! -nargs=1 OpenFilesCommand call OpenFiles(<f-args>)
+
+map <leader>o :OpenFilesCommand
